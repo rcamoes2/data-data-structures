@@ -12,15 +12,13 @@ def convert(amount, currency):
     if currency == "EUR":
         if amount[1] == "EUR":
             # round the value with no decimal places
-            return round(amount[0], 0)
+            return round(amount[0])
         if amount[1] == "USD":
-            return round(amount[0] * RATES["USDEUR"], 0)
+            return round(amount[0] * RATES["USDEUR"])
         if amount[1] == "GBP":
-            return round(amount[0] * RATES["GBPEUR"], 0)
+            return round(amount[0] * RATES["GBPEUR"])
         if amount[1] == "CHF":
-            return round(amount[0] * RATES["CHFEUR"], 0)
+            return round(amount[0] * RATES["CHFEUR"])
     if currency == "GBP":
         if amount[1] == "EUR":
-            return round(amount[0] * RATES["EURGBP"], 0)
-
-print (convert((100, "EUR"), "GBP"))
+            return round(amount[0] * RATES["EURGBP"])
