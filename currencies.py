@@ -7,18 +7,20 @@ def convert(amount, currency):
     amount is a tuple like (100, "EUR")
     currency is a string
     """
+    result = None
     if currency not in ["EUR", "USD", "GBP", "CHF"]:
         return None
     if currency == "EUR":
         if amount[1] == "EUR":
             # round the value with no decimal places
-            return round(amount[0])
+            result = round(amount[0])
         if amount[1] == "USD":
-            return round(amount[0] * RATES["USDEUR"])
+            result = round(amount[0] * RATES["USDEUR"])
         if amount[1] == "GBP":
-            return round(amount[0] * RATES["GBPEUR"])
+            result = round(amount[0] * RATES["GBPEUR"])
         if amount[1] == "CHF":
-            return round(amount[0] * RATES["CHFEUR"])
+            result = round(amount[0] * RATES["CHFEUR"])
     if currency == "GBP":
         if amount[1] == "EUR":
-            return round(amount[0] * RATES["EURGBP"])
+            result = round(amount[0] * RATES["EURGBP"])
+    return result
